@@ -13,12 +13,12 @@ private: // access modifiers
 
 public:
     //constructor
-    Vehicle(string n, string t, string c, int k)
+    Vehicle(string name, string type, string color, int kms)
     {
-        name = n;
-        type = t;
-        color = c;
-        kms = k;
+        this -> name = name;
+        this -> type = type;
+        this -> color = color;
+        this -> kms = kms;
     }
 
     Vehicle()
@@ -35,11 +35,11 @@ public:
         cout << kms << endl;
     }
 
-    void setKMS(int k)
+    void setKMS(int kms)
     {
-        if (k >= 0)
+        if (kms >= 0)
         {
-            kms = k;
+            this -> kms = kms;
         }
     }
 

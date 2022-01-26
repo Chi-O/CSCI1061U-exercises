@@ -20,7 +20,7 @@ public:
 
     void setX(int x)
     {
-        x = x;
+        this -> x = x; // explicitly tell the compiler which variable you are referring to
     }
 };
 
