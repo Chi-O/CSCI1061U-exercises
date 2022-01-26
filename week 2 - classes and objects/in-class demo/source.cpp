@@ -7,6 +7,7 @@ class X
 {
 private:
     int x;
+
 public:
     X()
     {
@@ -20,18 +21,48 @@ public:
 
     void setX(int x)
     {
-        this -> x = x; // explicitly tell the compiler which variable you are referring to
+        this->x = x; // explicitly tell the compiler which variable you are referring to
     }
 };
 
+class Y
+{
+private:
+    int y;
+
+public:
+    Y()
+    {
+        y = 0;
+    }
+
+    int getY()
+    {
+        return y;
+    }
+
+    void setY(int y)
+    {
+        this->y = y; // explicitly tell the compiler which variable you are referring to
+    }
+};
+
+void add(X obj1, Y obj2) // you can pass objects as parameters
+{
+    cout << obj1.getX() + obj2.getY() << endl;
+}
 
 int main()
 {
-    X obj = X();
+    Y obj2 = Y();
+    obj2.setY(10);
+    cout << obj2.getY() << endl;
 
-    obj.setX(10);
+    X obj1 = X();
+    obj1.setX(10);
+    cout << obj1.getX() << endl;
 
-    cout << obj.getX();
+    add(obj1, obj2);
 
     return 0;
 }
