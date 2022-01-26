@@ -1,20 +1,37 @@
 // in-class Class demonstration
 // 26/01/2022
 
-#include "vehicle.h" // access header file
+#include "vehicle.h"
+
+class X
+{
+private:
+    int x;
+public:
+    X()
+    {
+        x = 0;
+    }
+
+    int getX()
+    {
+        return x;
+    }
+
+    void setX(int x)
+    {
+        x = x;
+    }
+};
+
 
 int main()
 {
-    // create an object of a class
-    Vehicle car1 = Vehicle("Honda CRV", "Compact", "Orange", 39843);
-    car1.drive();
-    // car1.carDetails();
-    car1.getKMS();
-    car1.setKMS(56789);
-    car1.getKMS();
+    X obj = X();
 
-    // Vehicle car2 = Vehicle();
-    // car2.carDetails();
+    obj.setX(10);
+
+    cout << obj.getX();
 
     return 0;
 }
