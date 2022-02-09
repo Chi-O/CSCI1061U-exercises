@@ -30,9 +30,13 @@ public:
     }
 
     // getter and setters
-    void getKMS()
+    int getKMS()
     {
-        cout << kms << endl;
+        return kms;
+    }
+    string getName()
+    {
+        return name;
     }
 
     void setKMS(int kms)

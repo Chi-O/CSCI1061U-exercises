@@ -4,13 +4,21 @@
 
 using namespace std;
 
+// pass operands as parameters
+// the things on both sides of operator 
+// its a good idea to pass objects by reference in case they are large
+void operator<<(ostream& output, Vehicle& vehicle)
+{
+    output << vehicle.getKMS();
+    output << vehicle.getName() << endl;
+}
+
 int main()
 {
-    string str1 = "Ontario", str2 = "Tech";
+    Vehicle car1 = Vehicle("Audi", "saloon", "pink", 343);
+    Vehicle car2 = Vehicle("BMW", "bat mobile", "dark grey", 8910);
 
-    string result = str1 + str2;
-
-    cout << "Result: " << result << endl;
+    cout << car1;
 
     return 0;
 }
