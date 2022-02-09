@@ -7,10 +7,12 @@ using namespace std;
 // pass operands as parameters
 // the things on both sides of operator 
 // its a good idea to pass objects by reference in case they are large
-void operator<<(ostream& output, Vehicle& vehicle)
+ostream& operator<<(ostream& output, Vehicle& vehicle)
 {
     output << vehicle.getKMS();
     output << vehicle.getName() << endl;
+
+    return output; // return ostream object reference
 }
 
 int main()
