@@ -4,42 +4,54 @@
 
 using namespace std;
 
-// non-member function; written outside of a class
-// pass operands as parameters
-// the things on both sides of operator 
-// its a good idea to pass objects by reference in case they are large
-ostream& operator<<(ostream& output, Vehicle& vehicle)
+class Point
 {
-    output << vehicle.getKMS();
-    output << vehicle.getName() << endl;
+private:
+    int x, y;
 
-    return output; // return ostream object reference
-}
-
-ostream& operator<<(ostream& output, Collections& collection)
-{
-    for (int i = 0; i < collection.getV().size(); i++)
+public:
+    Point()
     {
-        output << collection.getV()[i].getKMS();
-        output << collection.getV()[i].getName() << endl;
+        x, y;
     }
-    
-    return output; // return ostream object reference
-}
+
+    Point(int x, int y)
+    {
+        this->x = x;
+        this->y = y;
+    }
+
+    int getX() 
+    {
+        return x;
+    }
+
+    int getY() 
+    {
+        return y;
+    }
+
+    // we can access the x, y attributes of the first operand using the this-> keyword, 
+    // so we only need to pass one Point object (the second operand)
+    Point operator+(Point& p) 
+    {
+        Point temp;
+        temp.x = this->x + p.x;
+        temp.y = this->y + p.y;
+
+        return temp;
+    }
+};
 
 int main()
 {
-    Vehicle car1 = Vehicle("Audi", "saloon", "pink", 343);
-    Vehicle car2 = Vehicle("BMW", "bat mobile", "dark grey", 8910);
+    Point p1 = Point(4, 5);
+    Point p2 = Point(6, 7);
 
-    Collections collections;
+    Point result = p1 + p2;
 
-    collections += car1;
-    collections += car2;
-
-    // what if we want to do 'collections += car1' instead of "push_back"? -> we have to overload the "+=" operator
-
-    cout << collections << endl;
+    cout << "(" << p1.getX() << ", " << p1.getY() << ") + (" << p2.getX() << ", " << p2.getY();
+    cout << ") = (" << result.getX() << ", " << result.getY() << ")";
 
     return 0;
 }
