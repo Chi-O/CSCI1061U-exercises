@@ -7,7 +7,7 @@ using namespace std;
 class Point
 {
 private:
-    int x, y;
+    int x, y, z;
 
 public:
     Point()
@@ -31,6 +31,11 @@ public:
         return y;
     }
 
+    int getZ() 
+    {
+        return y;
+    }
+
     // we can access the x, y attributes of the first operand using the this-> keyword, 
     // so we only need to pass one Point object (the second operand)
     Point operator+(Point& p) 
@@ -41,7 +46,15 @@ public:
 
         return temp;
     }
+
+    // get access to everything in the class without getters and setters
+    friend int getAccessZ(Point point);
 };
+
+int getAccessZ(Point point)
+{
+    return point.z;
+}
 
 int main()
 {
