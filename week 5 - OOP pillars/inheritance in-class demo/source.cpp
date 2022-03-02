@@ -2,47 +2,59 @@
 
 using namespace std;
 
-class Phone
+// parent class vehicle
+class Vehicle
 {
 public:
-    void makeCalls()
+    void drive()
     {
-        cout << "I can make calls" << endl;
+        cout << "I am driving\n";
+    }
+    void startEngine()
+    {
+        cout << "Engine started\n";
+    }
+    void stopEngine()
+    {
+        cout << "Engine stopped\n";
     }
 };
 
-class SmartPhone : public Phone
+class Car: public Vehicle // child class
 {
 public:
-    void browseInternet()
+    void goToPicnic()
     {
-        cout << "I can browse Internet" << endl;
-    }
-
-    void makeCalls()
-    {
-        cout << "I can make calls from SmartPhone" << endl;
+        cout << "Going to picnic\n";
     }
 };
 
-class Android : public SmartPhone
+class Truck: public Vehicle
 {
 public:
-    void IAmAndroid()
+    void carryGoods()
     {
-        cout << "I am Android" << endl;
+        cout << "Carrying goods\n";
     }
 };
 
 int main()
 {
-    Android android;
+    Car car;
+    Truck truck;
+    cout << "Car Object..." << endl;
+    car.drive();
+    car.startEngine();
+    car.stopEngine();
+    car.goToPicnic();
 
-    // multi-level inheritance
-    // Android <- SmartPhone <- Phone
-    // (child) <- (parent) <- (grandparent)
-    android.IAmAndroid();
-    android.makeCalls(); // it calls the function from the most immediate parent i.e. parent before grandparent
-    android.browseInternet();
+    cout << "\n";
+
+    cout << "Truck Object..." << endl;
+    truck.drive();
+    truck.startEngine();
+    truck.stopEngine();
+    truck.carryGoods();
+
     return 0;
 }
