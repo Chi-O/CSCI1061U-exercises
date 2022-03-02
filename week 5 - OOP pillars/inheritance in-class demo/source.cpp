@@ -5,41 +5,62 @@ using namespace std;
 class Car
 {
 public:
-    void drive() {
+    void drive()
+    {
         cout << "I am driving\n";
     }
-    void startEngine() {
+    void startEngine()
+    {
         cout << "Engine started\n";
     }
-    void stopEngine() {
+    void stopEngine()
+    {
         cout << "Engine stopped\n";
     }
-    void goToPicnic() {
+    void goToPicnic()
+    {
         cout << "Going to picnic\n";
     }
-
 };
 
 class Truck
 {
 public:
-    void drive() {
+    void drive()
+    {
         cout << "I am driving\n";
     }
-    void startEngine() {
+    void startEngine()
+    {
         cout << "Engine started\n";
     }
-    void stopEngine() {
+    void stopEngine()
+    {
         cout << "Engine stopped\n";
     }
-    void carryGoods() {
+    void carryGoods()
+    {
         cout << "Carrying goods\n";
     }
-
 };
-
 
 int main()
 {
+    Car car;
+    Truck truck;
+    cout << "Car Object..." << endl;
+    car.drive();
+    car.startEngine();
+    car.stopEngine();
+    car.goToPicnic();
+
+    cout << "\n";
+
+    cout << "Truck Object..." << endl;
+    truck.drive();
+    truck.startEngine();
+    truck.stopEngine();
+    truck.carryGoods();
+
     return 0;
 }
