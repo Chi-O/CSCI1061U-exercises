@@ -5,6 +5,8 @@ using namespace std;
 // parent class vehicle
 class Vehicle
 {
+protected:
+    int KMs;
 public:
     void drive()
     {
@@ -18,6 +20,10 @@ public:
     {
         cout << "Engine stopped\n";
     }
+    void setKMs(int KMs) 
+    {
+        this->KMs = KMs;
+    }
 };
 
 class Car: public Vehicle // child class
@@ -26,6 +32,10 @@ public:
     void goToPicnic()
     {
         cout << "Going to picnic\n";
+    }
+    void showKMs()
+    {
+        cout << "I am a car and this is my KMs " << KMs << "\n";
     }
 };
 
@@ -42,19 +52,10 @@ int main()
 {
     Car car;
     Truck truck;
-    cout << "Car Object..." << endl;
-    car.drive();
-    car.startEngine();
-    car.stopEngine();
-    car.goToPicnic();
+    Vehicle vehicle;
 
-    cout << "\n";
-
-    cout << "Truck Object..." << endl;
-    truck.drive();
-    truck.startEngine();
-    truck.stopEngine();
-    truck.carryGoods();
+    car.setKMs(34);
+    car.showKMs();
 
     return 0;
 }
