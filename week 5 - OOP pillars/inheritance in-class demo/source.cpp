@@ -2,70 +2,39 @@
 
 using namespace std;
 
-// parent class vehicle
-class Vehicle
+class Phone
 {
-private:
-    int secret = 0; // cannot be accessed outside the class
-protected:
-    int anotherVariable = 10; // can only be accessed by the child variables
 public:
-    int someVariable = 7; // can be accessed by any other class
-
-    void drive()
+    void makeCalls()
     {
-        cout << "I am driving\n";
-    }
-    void startEngine()
-    {
-        cout << "Engine started\n";
-    }
-    void stopEngine()
-    {
-        cout << "Engine stopped\n";
+        cout << "I can make calls" << endl;
     }
 };
 
-class Car: public Vehicle // child class
-// all of the *public* methods become available
+class SmartPhone
 {
 public:
-    void goToPicnic()
+    void browseInternet()
     {
-        cout << "Going to picnic\n";
+        cout << "I can browse Internet" << endl;
     }
-
-    Vehicle vehicle;
 };
 
-class Truck: public Vehicle
+class Android : public Phone, public SmartPhone // inheriting from two different classes
 {
 public:
-    void carryGoods()
+    void IAmAndroid()
     {
-        cout << "Carrying goods\n";
+        cout << "I am Android" << endl;
     }
 };
 
 int main()
 {
-    Car car;
-    Truck truck;
-    Vehicle vehicle;
-
-    cout << "Car Object..." << endl;
-    car.drive();
-    car.startEngine();
-    car.stopEngine();
-    car.goToPicnic();
-
-    cout << "\n";
-
-    cout << "Truck Object..." << endl;
-    truck.drive();
-    truck.startEngine();
-    truck.stopEngine();
-    truck.carryGoods();
-
+    Android android;
+    
+    android.IAmAndroid();
+    android.makeCalls();
+    android.browseInternet();
     return 0;
 }
