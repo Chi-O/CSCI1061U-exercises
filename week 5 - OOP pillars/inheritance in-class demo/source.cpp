@@ -32,7 +32,7 @@ public:
 int main()
 {
     Android android;
-    
+
     android.IAmAndroid();
     android.makeCalls();
     android.browseInternet();
