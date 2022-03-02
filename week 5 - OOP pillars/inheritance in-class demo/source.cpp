@@ -11,12 +11,17 @@ public:
     }
 };
 
-class SmartPhone: public Phone
+class SmartPhone : public Phone
 {
 public:
     void browseInternet()
     {
         cout << "I can browse Internet" << endl;
+    }
+
+    void makeCalls()
+    {
+        cout << "I can make calls from SmartPhone" << endl;
     }
 };
 
@@ -37,7 +42,7 @@ int main()
     // Android <- SmartPhone <- Phone
     // (child) <- (parent) <- (grandparent)
     android.IAmAndroid();
-    android.makeCalls();
+    android.makeCalls(); // it calls the function from the most immediate parent i.e. parent before grandparent
     android.browseInternet();
     return 0;
 }
