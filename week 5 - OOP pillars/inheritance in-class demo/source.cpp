@@ -11,7 +11,7 @@ public:
     }
 };
 
-class SmartPhone
+class SmartPhone: public Phone
 {
 public:
     void browseInternet()
@@ -20,7 +20,7 @@ public:
     }
 };
 
-class Android : public Phone, public SmartPhone // inheriting from two different classes
+class Android : public SmartPhone
 {
 public:
     void IAmAndroid()
@@ -33,6 +33,9 @@ int main()
 {
     Android android;
 
+    // multi-level inheritance
+    // Android <- SmartPhone <- Phone
+    // (child) <- (parent) <- (grandparent)
     android.IAmAndroid();
     android.makeCalls();
     android.browseInternet();
