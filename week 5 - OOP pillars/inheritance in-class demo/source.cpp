@@ -2,7 +2,8 @@
 
 using namespace std;
 
-class Car
+// parent class vehicle
+class Vehicle
 {
 public:
     void drive()
@@ -17,27 +18,20 @@ public:
     {
         cout << "Engine stopped\n";
     }
+};
+
+class Car: public Vehicle // child class
+{
+public:
     void goToPicnic()
     {
         cout << "Going to picnic\n";
     }
 };
 
-class Truck
+class Truck: public Vehicle
 {
 public:
-    void drive()
-    {
-        cout << "I am driving\n";
-    }
-    void startEngine()
-    {
-        cout << "Engine started\n";
-    }
-    void stopEngine()
-    {
-        cout << "Engine stopped\n";
-    }
     void carryGoods()
     {
         cout << "Carrying goods\n";
