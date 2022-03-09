@@ -9,9 +9,9 @@ protected: // available to child classes only
     int kms;
 
 public:
-    Vehicle(){
-        cout << "default Vehicle constructor \n";
-    }
+    // Vehicle(){
+    //     cout << "default Vehicle constructor \n";
+    // }
     // constructor
     Vehicle(string name, int kms)
     {
@@ -34,8 +34,8 @@ public:
 class Car : public Vehicle
 {
 public:
-    // constructor
-    Car(string name, int kms)
+    // force constructor to call a parent constructor
+    Car(string name, int kms) : Vehicle(name, kms)
     { // by default, child class automatically calls default constructor of parent class
         this->name = name;
         this->kms = kms;
@@ -57,7 +57,7 @@ int main()
 {
     Car car = Car("Toyota", 123);
     Car car2 = Car("Ford", 456);
-    
+
     // parent destructor will only be called after all the child objects have been destroyed
     return 0;
 }
