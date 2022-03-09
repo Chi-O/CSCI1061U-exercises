@@ -12,6 +12,7 @@ public:
     //constructor
     Vehicle()
     {
+        sensors = new int[25]; // create an array of 25 integers in the heap memory
         cout << "default constructor \n";
     }
 
@@ -22,6 +23,10 @@ public:
 
     ~Vehicle()
     {
+        // you can deallocate memory here in the destructor
+        delete[] sensors;
+        // avoid dangling pointer
+        sensors = nullptr;
         cout << "default destructor \n";
     }
 
