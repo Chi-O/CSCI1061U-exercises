@@ -9,6 +9,9 @@ protected: // available to child classes only
     int kms;
 
 public:
+    Vehicle(){
+        cout << "default Vehicle constructor \n";
+    }
     // constructor
     Vehicle(string name, int kms)
     {
@@ -23,7 +26,7 @@ public:
 
     ~Vehicle()
     {
-        cout << "default destructor \n";
+        cout << "default Vehicle destructor \n";
     }
 
 }; // Classes end with a semicolon
@@ -44,15 +47,17 @@ public:
         cout << "going to picnic \n";
     }
 
-    ~Car()
+    ~Car() // child destructor is called before the parent destructor
     {
-        cout << "Car default destructor \n";
+        cout << " default Car destructor \n";
     }
 };
 
 int main()
 {
     Car car = Car("Toyota", 123);
-
+    Car car2 = Car("Ford", 456);
+    
+    // parent destructor will only be called after all the child objects have been destroyed
     return 0;
 }
