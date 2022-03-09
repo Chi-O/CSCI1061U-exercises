@@ -6,7 +6,7 @@ using namespace std;
 class Vehicle
 {
 protected:
-    int KMs;
+    int KMs = 0;
 public:
     void drive()
     {
@@ -54,8 +54,13 @@ int main()
     Truck truck;
     Vehicle vehicle;
 
-    car.setKMs(34);
-    car.showKMs();
+    // // quick revision: a pointer can point to a pointer of it's own type
+    // parent cannot access any of it's child methods
+    // Car* ptrCar;
+    // ptrCar = &car;
+
+    Vehicle* ptrVehicle;
+    ptrVehicle = &vehicle;
 
     return 0;
 }
