@@ -1,49 +1,50 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 template <class T>
-class Vector
+class Stack 
 {
 private:
-    T* numbers;
-    int size;
+    vector<T> stack;
 public:
-    Vector(int size)
+    void push(T e)
     {
-        this->size = size;
-        this-> numbers = new T[size]; // new array in heap
+        stack.push_back(e);
     }
 
-    void addElement()
+    void pop()
     {
-        cout << "enter " << size << " elements ... \n";
-
-        for (int i = 0; i < this->size; i++)
-        {
-            cout << "enter element[" << i << "] = ";
-            cin >> numbers[i];
-        }
-        
+        stack.pop_back();
     }
 
-    T sumElements()
+    // FILO first in, last out
+    void display()
     {
-        T sum = 0;
-        for (int i = 0; i < size; i++)
+        cout << "from top to bottom... \n";
+        for (int i = stack.size() - 1; i >= 0; i--)
         {
-            sum += numbers[i];
+            cout << "element [" << i << "] = " << stack[i] << "\n";
         }
-
-        return sum;        
     }
 };
 
 int main()
 {   
-    Vector<double> v1(6);
-    v1.addElement();
-    cout << "sum: " << v1.sumElements();
+    Stack<double> s;
+    double num;
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << "enter element [" << i << "] = ";
+        cin >> num;
+        s.push(num);
+    }
+
+    s.pop();
+
+    s.display();
 
     return 0;
 }
