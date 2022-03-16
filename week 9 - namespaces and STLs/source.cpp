@@ -2,16 +2,17 @@
 
 using namespace std;
 
+template <class T>
 class Vector
 {
 private:
-    int* numbers;
+    T* numbers;
     int size;
 public:
     Vector(int size)
     {
         this->size = size;
-        this-> numbers = new int[size]; // new array in heap
+        this-> numbers = new T[size]; // new array in heap
     }
 
     void addElement()
@@ -26,9 +27,9 @@ public:
         
     }
 
-    int sumElements()
+    T sumElements()
     {
-        int sum = 0;
+        T sum = 0;
         for (int i = 0; i < size; i++)
         {
             sum += numbers[i];
@@ -40,7 +41,7 @@ public:
 
 int main()
 {   
-    Vector v1(6);
+    Vector<double> v1(6);
     v1.addElement();
     cout << "sum: " << v1.sumElements();
 
