@@ -2,10 +2,11 @@
 
 using namespace std;
 
+template<class T>
 class X
 {
 private:
-    int x;
+    T x; // change each datatype to T
 
 public:
     // default constructor
@@ -13,20 +14,21 @@ public:
     {
         x = 0;
     }
-    X(int x)
+    X(T x)
     {
         this->x = x;
     }
-    int getX()
+    T getX()
     {
         return x;
     }
 };
 
+template<class T>
 class Y
 {
 private:
-    int y;
+    T y;
 
 public:
     // default constructor
@@ -34,25 +36,25 @@ public:
     {
         y = 0;
     }
-    Y(int y)
+    Y(T y)
     {
         this->y = y;
     }
-    int getY()
+    T getY()
     {
         return y;
     }
 };
 
-int sum(X x1, Y y1)
+double sum(X<double> x1, Y<double> y1)
 {
     return x1.getX() + y1.getY();
 }
 
 int main()
 {
-    X x1 = X(5); 
-    Y y1 = Y(7);
+    X<double> x1 = X<double>(5.5); // have to specify the data type in angular brackets
+    Y<double> y1 = Y<double>(7.89);
 
     cout << "Sum: " << sum(x1, y1) << "\n"; // works with int only
 
