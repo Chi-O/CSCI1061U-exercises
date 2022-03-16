@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ public:
 
 int main()
 {   
-    Stack<double> s;
+    stack<double> s;
     double num;
 
     for (int i = 0; i < 5; i++)
@@ -42,9 +43,12 @@ int main()
         s.push(num);
     }
 
-    s.pop();
-
-    s.display();
+    while (!s.empty())
+    {
+        cout << s.top() << "\n";
+        s.pop();
+    }
+    
 
     return 0;
 }
