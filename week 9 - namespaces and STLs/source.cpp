@@ -4,9 +4,11 @@
 
 int main()
 {
-    Vehicle vehicle;
-    vehicle.startEngine();
-    vehicle.drive(); // error here
+    galactic::Vehicle vehicle;
+    vehicle.drive();
+
+    milkyWay::Vehicle v2;
+    v2.startEngine();
 
     return 0;
 }

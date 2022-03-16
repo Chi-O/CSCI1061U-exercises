@@ -2,14 +2,19 @@
 
 using namespace std;
 
-class Vehicle
+// create a namespace
+namespace galactic
 {
-private:
-    string name;
-    int kms;
-public:
-    void drive()
+    class Vehicle
     {
-        cout << "I can drive" << endl;
-    }
-};
+    private:
+        string name;
+        int kms;
+
+    public:
+        void drive()
+        {
+            cout << "I can drive" << endl;
+        }
+    };
+}

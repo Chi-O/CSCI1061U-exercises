@@ -2,14 +2,19 @@
 
 using namespace std;
 
-class Vehicle
+// create a namespace
+namespace milkyWay
 {
-private:
-    string name;
-    int kms;
-public:
-    void startEngine()
+    class Vehicle
     {
-        cout << "Vrooom" << endl;
-    }
-};
+    private:
+        string name;
+        int kms;
+
+    public:
+        void startEngine()
+        {
+            cout << "Vrooom" << endl;
+        }
+    };
+} // namespace name
