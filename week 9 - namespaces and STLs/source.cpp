@@ -1,11 +1,11 @@
-// including both header files
 #include "vehicle.h"
-#include "anotherVehicle.h" // the compiler chooses the one that was included last
+#include "anotherVehicle.h"
 
 int main()
 {
-    galactic::Vehicle vehicle;
+    galactic::Vehicle vehicle; // access classes
     vehicle.drive();
+    galactic::globFunc(); // access global functions as well
 
     milkyWay::Vehicle v2;
     v2.startEngine();

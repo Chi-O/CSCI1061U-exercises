@@ -14,7 +14,12 @@ namespace galactic
     public:
         void drive()
         {
-            cout << "I can drive" << endl;
+            cout << "I can drive \n";
         }
     };
+
+    void globFunc()
+    {
+        cout << "Not part of the Vehicle class, sike! \n";
+    }
 }
