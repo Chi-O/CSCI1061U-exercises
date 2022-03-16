@@ -2,61 +2,47 @@
 
 using namespace std;
 
-template<class T>
-class X
+class Vector
 {
 private:
-    T x; // change each datatype to T
-
+    int* numbers;
+    int size;
 public:
-    // default constructor
-    X()
+    Vector(int size)
     {
-        x = 0;
+        this->size = size;
+        this-> numbers = new int[size]; // new array in heap
     }
-    X(T x)
+
+    void addElement()
     {
-        this->x = x;
+        cout << "enter " << size << " elements ... \n";
+
+        for (int i = 0; i < this->size; i++)
+        {
+            cout << "enter element[" << i << "] = ";
+            cin >> numbers[i];
+        }
+        
     }
-    T getX()
+
+    int sumElements()
     {
-        return x;
+        int sum = 0;
+        for (int i = 0; i < size; i++)
+        {
+            sum += numbers[i];
+        }
+
+        return sum;        
     }
 };
-
-template<class T>
-class Y
-{
-private:
-    T y;
-
-public:
-    // default constructor
-    Y()
-    {
-        y = 0;
-    }
-    Y(T y)
-    {
-        this->y = y;
-    }
-    T getY()
-    {
-        return y;
-    }
-};
-
-double sum(X<double> x1, Y<double> y1)
-{
-    return x1.getX() + y1.getY();
-}
 
 int main()
-{
-    X<double> x1 = X<double>(5.5); // have to specify the data type (including custom classes) in angular brackets
-    Y<double> y1 = Y<double>(7.89);
-
-    cout << "Sum: " << sum(x1, y1) << "\n"; // works with int only
+{   
+    Vector v1(6);
+    v1.addElement();
+    cout << "sum: " << v1.sumElements();
 
     return 0;
 }
