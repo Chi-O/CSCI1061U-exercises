@@ -53,7 +53,7 @@ double sum(X<double> x1, Y<double> y1)
 
 int main()
 {
-    X<double> x1 = X<double>(5.5); // have to specify the data type in angular brackets
+    X<double> x1 = X<double>(5.5); // have to specify the data type (including custom classes) in angular brackets
     Y<double> y1 = Y<double>(7.89);
 
     cout << "Sum: " << sum(x1, y1) << "\n"; // works with int only
