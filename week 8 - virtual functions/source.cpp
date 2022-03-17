@@ -9,55 +9,49 @@ protected: // available to child classes only
     int kms;
 
 public:
-    // Vehicle(){
-    //     cout << "default Vehicle constructor \n";
-    // }
-    // constructor
-    Vehicle(string name, int kms)
-    {
-        this->name = name;
-        this->kms = kms;
-        cout << "parameterized Vehicle constructor \n";
-    }
     void drive()
     {
-        cout << "I can drive 🚗💨 \n";
+        cout << "Vehicle can drive 🚗💨 \n";
     }
-
-    ~Vehicle()
-    {
-        cout << "default Vehicle destructor \n";
-    }
-
 }; // Classes end with a semicolon
 
 class Car : public Vehicle
 {
 public:
-    // force constructor to call a parent constructor
-    Car(string name, int kms) : Vehicle(name, kms)
-    { // by default, child class automatically calls default constructor of parent class
-        this->name = name;
-        this->kms = kms;
-        cout << "parameterized Car constructor \n";
-    }
-
     void goToPicnic()
     {
         cout << "going to picnic \n";
     }
-
-    ~Car() // child destructor is called before the parent destructor
+    void drive()
     {
-        cout << " default Car destructor \n";
+        cout << "Car can drive 🚗💨 \n";
+    }
+};
+
+class Truck : public Vehicle
+{
+public:
+    void carryGoods()
+    {
+        cout << "Carrying Goods" << endl;
     }
 };
 
 int main()
 {
-    Car car = Car("Toyota", 123);
-    Car car2 = Car("Ford", 456);
+    Car car;
+    Truck truck;
 
-    // parent destructor will only be called after all the child objects have been destroyed
+    Vehicle *vehicle[2];
+    vehicle[0] = &car;
+    vehicle[1] = &truck;
+
+    // initially the parent method drive() will always be called. 
+    // but what if we want to call a method of the child class?
+    vehicle[0]->drive();
+    vehicle[1]->drive();
+
+    return 0;
+
     return 0;
 }
