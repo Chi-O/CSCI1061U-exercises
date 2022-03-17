@@ -9,7 +9,7 @@ protected: // available to child classes only
     int kms;
 
 public:
-    void drive()
+    virtual void drive()
     {
         cout << "Vehicle can drive 🚗💨 \n";
     }
@@ -22,7 +22,7 @@ public:
     {
         cout << "going to picnic \n";
     }
-    void drive()
+    virtual void drive() override // good practice to add 'virtual', 'override' keyword
     {
         cout << "Car can drive 🚗💨 \n";
     }
@@ -48,7 +48,7 @@ int main()
 
     // initially the parent method drive() will always be called. 
     // but what if we want to call a method of the child class?
-    vehicle[0]->drive();
+    vehicle[0]->drive(); // use the parent pointer and call a method of the child class
     vehicle[1]->drive();
 
     return 0;
