@@ -1,14 +1,29 @@
-#include "vehicle.h"
-#include "anotherVehicle.h"
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <array>
+
+using namespace std;
 
 int main()
 {
-    galactic::Vehicle vehicle; // access classes
-    vehicle.drive();
-    galactic::globFunc(); // access global functions as well
+    array<int, 5> arr;
+    int num;
 
-    milkyWay::Vehicle v2;
-    v2.startEngine();
+    cout << arr.size();
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << "enter element [" << i << "] = ";
+        cin >> num;
+        arr[i] = num;
+    }
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << "element [" << i << "] = " << arr[i] << "\n";
+    }
+
 
     return 0;
 }
