@@ -2,14 +2,17 @@
 
 using namespace std;
 
-int sum(int x, int y)
+// make a function template
+template <typename T, typename U> // add another data type
+T sum(T x, U y)
 {
     return x + y;
 }
 
 int main()
 {
-    int x = 5.2, y = 7.4;
+    double x = 5.2;
+    int y = 7;
     cout << "Sum: " << sum(x, y) << "\n";
     return 0;
 }
